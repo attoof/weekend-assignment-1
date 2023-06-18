@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">  <title>Mustafa Abdul Shafi - Web Developer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #000000;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .profile-img {
+      border-radius: 100%;
+      width: 150px;
+      height: 150;
+      margin-bottom: 1000px;
+    }
+    
+    .contact-info {
+      margin-bottom: 10px;
+    }
+    
+    .chatbot-container {
+      margin-top: 30px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    
+    .chatbot-container input[type="text"] {
+      width: 100%;
+      padding: 10px;
+    }
+    
+    .email-form {
+      margin-top: 20px;
+    }
+    
+    .email-form input,
+    .email-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .email-form button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+        <div class="sidebar">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+    <h1><I>Mustafa Abdul Shafi</I></h1>
+    <img src="Mustafa.jpg" alt="Profile Image" class="profile-img">
+    <p>Hello! I'm Mustafa Abdul Shafi, a web developer with a passion for creating dynamic and engaging websites. I have expertise in HTML, CSS, JavaScript, and various web frameworks.</p>
+    <p>If you're looking for a professional and dedicated web developer, feel free to reach out to me. I'm always open to exciting projects and collaborations.</p>
+    
+    <div class="contact-info">
+      <p>Email: mustafashafi55@gmail.com</p>
+      <p>Phone: +972586882550</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/mustafa-abdul-shafi-89173910b?originalSubdomain=ca" target="_blank">Mustafa Abdul Shafi</a></p>
+    </div>
+    
+    <div class="chatbot-container">
+      <h2>Chat Now</h2>
+      <input type="text" id="user-input" placeholder="Type your message">
+      <div id="chat-log"></div>
+      
+      <div class="email-form">
+        <h2>Send Email</h2>
+        <input type="text" id="email-name" placeholder="Your Name">
+        <input type="email" id="email-address" placeholder="Your Email Address">
+        <textarea id="email-message" placeholder="Your Message"></textarea>
+        <button id="email-submit-button">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Chatbot functionality
+    var userInput = document.getElementById('user-input');
+    var chatLog = document.getElementById('chat-log');
+    var emailNameInput = document.getElementById('email-name');
+    var emailAddressInput = document.getElementById('email-address');
+    var emailMessageInput = document.getElementById('email-message');
+    var emailSubmitButton = document.getElementById('email-submit-button');
+
+    function handleUserInput() {
+      var message = userInput.value;
+      var response = getChatbotResponse(message);
+
+      displayMessage('You', message);
+      displayMessage('Chatbot', response);
+
+      userInput.value = '';
+    }
+
+    function displayMessage(sender, message) {
+      var messageElement = document.createElement('p');
+      messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+      chatLog.appendChild(messageElement);
+    }
+
+    function getChatbotResponse(message) {
+      // Customize chatbot responses here based on user input
+      // For simplicity, a basic response is provided
+      return "Thank you for your message. I'll get back to you soon!";
+    }
+
+    function sendEmail() {
+      var name = emailNameInput.value;
+      var email = emailAddressInput.value;
+      var message = emailMessageInput.value;
+
+      var mailtoLink = `mailto:mustafashafi55@gmail.com?subject=Website Inquiry&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+      window.location.href = mailtoLink;
+
+      emailNameInput.value = '';
+      emailAddressInput.value = '';
+      emailMessageInput.value = '';
+    }
+
+    userInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        handleUserInput();
+      }
+    });
+
+    emailSubmitButton.addEventListener('click', function() {
+      sendEmail();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
